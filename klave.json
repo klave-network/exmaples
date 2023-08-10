@@ -1,0 +1,23 @@
+{
+    "version": "1",
+    "name": "Klave Exmples",
+    "slug": "klave-examples",
+    "branch": "*",
+    "applications": [
+        {
+            "name": "Secret Mixing",
+            "version": "0.0.4",
+            "rootDir": "/apps/secret-mixing/happ"
+        },
+        {
+            "name": "Image Simd Faced",
+            "version": "0.0.0",
+            "rootDir": "/apps/image-simd-faced/happ"
+        },
+        {
+            "name": "Service Info",
+            "version": "1.0.0",
+            "rootDir": "/apps/simple-query/happ"
+        }
+    ]
+}
