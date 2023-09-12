@@ -57,7 +57,7 @@
         "test": {
             "executor": "@nx/vite:test",
             "outputs": [
-                "coverage/apps/simple-query"
+                "{workspaceRoot}/coverage/apps/simple-query"
             ],
             "options": {
                 "passWithNoTests": true,

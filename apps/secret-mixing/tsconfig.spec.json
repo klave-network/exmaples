@@ -6,7 +6,9 @@
             "vitest/globals",
             "vitest/importMeta",
             "vite/client",
-            "node"
+            "node",
+            "@nx/react/typings/cssmodule.d.ts",
+            "@nx/react/typings/image.d.ts"
         ]
     },
     "include": [

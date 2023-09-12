@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getParticipants, getResult, vote, getOwnContribution, Participant, ContributionResult, getPicoResult } from "../utils/apiFunctions";
+import { getParticipants, getOwnContribution, Participant, ContributionResult, getPicoResult } from "../utils/apiFunctions";
 import { ParticipantTable } from './ParticipantTable'
 import NavIcons from "./NavIcons";
 // import DebouncedInput from "./DebouncedInput";

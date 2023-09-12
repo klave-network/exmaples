@@ -57,7 +57,7 @@
         "test": {
             "executor": "@nx/vite:test",
             "outputs": [
-                "coverage/apps/chat-room"
+                "{workspaceRoot}/coverage/apps/chat-room"
             ],
             "options": {
                 "passWithNoTests": true,

@@ -57,7 +57,7 @@
         "test": {
             "executor": "@nx/vite:test",
             "outputs": [
-                "coverage/apps/image-simd-faced"
+                "{workspaceRoot}/coverage/apps/image-simd-faced"
             ],
             "options": {
                 "passWithNoTests": true,

@@ -57,7 +57,7 @@
         "test": {
             "executor": "@nx/vite:test",
             "outputs": [
-                "coverage/apps/secret-mixing"
+                "{workspaceRoot}/coverage/apps/secret-mixing"
             ],
             "options": {
                 "passWithNoTests": true,
