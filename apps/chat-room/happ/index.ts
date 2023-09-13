@@ -3,26 +3,6 @@ import { WriteMessageOutput, ClearChatOutput, Chat, ChatMessage } from './types'
 
 const chatRoomName = 'demo_chat';
 
-/**
- * @query
- */
-export function getChat(): void {
-
-    Subscription.setReplayStart();
-    const chat = Ledger.getTable(chatRoomName).get('messages');
-    if (chat.length === 0) {
-        Notifier.sendJson<Chat>({
-            messages: []
-        });
-        return;
-    }
-
-    const msgs = JSON.parse<ChatMessage[]>(chat);
-    Notifier.sendJson<Chat>({
-        messages: msgs
-    });
-
-};
 
 /**
  * @transaction
@@ -51,6 +31,27 @@ export function writeMessage(input: ChatMessage): void {
         success: true,
         message: 'Done',
         clientId
+    });
+
+};
+
+/**
+ * @query
+ */
+export function getChat(): void {
+
+    Subscription.setReplayStart();
+    const chat = Ledger.getTable(chatRoomName).get('messages');
+    if (chat.length === 0) {
+        Notifier.sendJson<Chat>({
+            messages: []
+        });
+        return;
+    }
+
+    const msgs = JSON.parse<ChatMessage[]>(chat);
+    Notifier.sendJson<Chat>({
+        messages: msgs
     });
 
 };

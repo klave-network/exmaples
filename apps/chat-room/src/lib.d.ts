@@ -6,3 +6,6 @@ interface Window {
     // demoKlaveGremlin: (enable: boolean) => AynAction;
     demoKlaveSubscriptions: Record<string, unknown>;
 }
+
+declare module 'retext';
+declare module 'retext-emoji';
