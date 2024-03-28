@@ -1,6 +1,6 @@
 {
     "version": "1",
-    "name": "Klave Exmples",
+    "name": "Klave Examples",
     "slug": "klave-examples",
     "branch": "*",
     "applications": [
@@ -18,6 +18,11 @@
             "name": "Service Info",
             "version": "1.0.0",
             "rootDir": "/apps/simple-query/happ"
+        },
+        {
+            "name": "Proof of Existence",
+            "version": "1.0.0",
+            "rootDir": "/apps/proof-of-existence/happ"
         }
     ]
 }
