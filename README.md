@@ -7,6 +7,7 @@ There are currently three examples detailed in this repo:
 - Simple service query
 - Multi-party secret mixing
 - Facial detection through model inference
+- Proof of existence
 
 ✨ **This workspace works with [Nx](https://nx.dev)** ✨
 
