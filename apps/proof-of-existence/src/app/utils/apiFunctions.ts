@@ -29,13 +29,15 @@ export type ServiceInfo = {
 }
 
 export type ProofOfExistenceOutput = {
-    success: false,
-    message: string;
-} | {
-    success: true;
-    hash: string;
-    index: string; //to be modified with trusted time
+    success: boolean,
+    hash: string,
+    timestamp: number,
+    index: number; //to be modified with height
 }
+
+export const stampToDate = (timestamp: number): string => {
+    return new Date(timestamp).toLocaleString('en-GB', { year: 'numeric', month: 'numeric', day: 'numeric', hour12: false, hour: '2-digit', minute: '2-digit' });
+};
 
 export const getIndexInfo = async (): Promise<ServiceInfo> => waitForConnection()
     .then(() => secretariumHandler.request(klaveContract, 'fetchIndex', {}, `getIndexInfo-${Math.random()}`))

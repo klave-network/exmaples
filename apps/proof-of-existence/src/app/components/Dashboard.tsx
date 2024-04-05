@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { ServiceInfo, getIndexInfo, createProofOfExistence, ProofOfExistenceOutput } from "../utils/apiFunctions";
+import { ServiceInfo, getIndexInfo, createProofOfExistence, ProofOfExistenceOutput, stampToDate } from "../utils/apiFunctions";
 import NavIcons from "./NavIcons";
 import {useDropzone} from "react-dropzone";
 import { getFileHash } from "../utils/misc";
 import { set } from "date-fns";
+import { Underline } from "lucide-react";
 
 export const Dashboard = () => {
 
@@ -36,7 +37,7 @@ export const Dashboard = () => {
                     setServiceInfo(data)
                 })
                 .catch(console.error);
-        }, 1000)
+        }, 10000)
 
         return () => {
             clearInterval(timer);
@@ -78,16 +79,14 @@ export const Dashboard = () => {
                 {resultSum ?
                     resultSum.success
                     ? <div>
-                        <span className="text-sm">Your document has been certified with the following index: <span className="text-sm" style={{ color: 'blue' }}>{resultSum.index}</span> </span><br />
+                        <span className="text-sm">Your document has been certified on the following date: <span className="text-sm" style={{ color: 'blue' }}>{stampToDate(resultSum.timestamp)}</span> and index: <span className="text-sm" style={{ color: 'blue' }}>{resultSum.index}</span></span><br />
                     </div>
                     : <div>
-                        <span className="text-sm" style={{ color: "#222445" }}>{resultSum.message}</span><br />
+                        <span className="text-sm">Your document has already been certified on the following date: <span className="text-sm" style={{ color: 'blue' }}>{stampToDate(resultSum.timestamp)}</span> and index: <span className="text-sm" style={{ color: 'blue' }}>{resultSum.index}</span></span><br />
                     </div>
                     : null
                 }
             </div>
-            {/* <h2 className="font-bold mb-2">List of participants</h2>
-            <ParticipantTable participants={participants} /> */}
         </div>
     </div>
 }
