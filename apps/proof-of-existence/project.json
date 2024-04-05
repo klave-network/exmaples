@@ -1,0 +1,86 @@
+{
+    "name": "proof-of-existence",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "apps/proof-of-existence/src",
+    "projectType": "application",
+    "targets": {
+        "build": {
+            "executor": "@nx/vite:build",
+            "outputs": [
+                "{options.outputPath}"
+            ],
+            "defaultConfiguration": "production",
+            "options": {
+                "outputPath": "dist/apps/proof-of-existence"
+            },
+            "configurations": {
+                "development": {
+                    "mode": "development"
+                },
+                "production": {
+                    "mode": "production"
+                }
+            }
+        },
+        "serve": {
+            "executor": "@nx/vite:dev-server",
+            "defaultConfiguration": "development",
+            "options": {
+                "buildTarget": "proof-of-existence:build"
+            },
+            "configurations": {
+                "development": {
+                    "buildTarget": "proof-of-existence:build:development",
+                    "hmr": true
+                },
+                "production": {
+                    "buildTarget": "proof-of-existence:build:production",
+                    "hmr": false
+                }
+            }
+        },
+        "preview": {
+            "executor": "@nx/vite:preview-server",
+            "defaultConfiguration": "development",
+            "options": {
+                "buildTarget": "proof-of-existence:build"
+            },
+            "configurations": {
+                "development": {
+                    "buildTarget": "proof-of-existence:build:development"
+                },
+                "production": {
+                    "buildTarget": "proof-of-existence:build:production"
+                }
+            }
+        },
+        "test": {
+            "executor": "@nx/vite:test",
+            "outputs": [
+                "{workspaceRoot}/coverage/apps/proof-of-existence"
+            ],
+            "options": {
+                "passWithNoTests": true,
+                "reportsDirectory": "../../coverage/apps/proof-of-existence"
+            }
+        },
+        "lint": {
+            "executor": "@nx/linter:eslint",
+            "outputs": [
+                "{options.outputFile}"
+            ],
+            "options": {
+                "lintFilePatterns": [
+                    "apps/proof-of-existence/**/*.{ts,tsx,js,jsx}"
+                ]
+            }
+        },
+        "serve-static": {
+            "executor": "@nx/web:file-server",
+            "options": {
+                "buildTarget": "proof-of-existence:build"
+            }
+        }
+    },
+    "tags": []
+}
